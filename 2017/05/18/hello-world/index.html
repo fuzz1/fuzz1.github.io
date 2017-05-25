@@ -15,15 +15,16 @@
 
 
 
-<meta name="description" content="start from zero">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Long long ago">
-<meta property="og:url" content="http://criedguy.top/archives/2017/index.html">
+<meta name="description" content="1.首先是url，如果是外部JS中的ajax请求，那么url是相对路径。如果是JSP页面中的请求，url是全路径。需要用到request.getContextPath. 2.其次是type，get/post，这个很少出问题。 3.重要的是ContentType,设置发送请求的提交数据的方式，有text/html、application/json、还有mutiple等。不是所有的数据请求都可以随便的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jquery ajax 请求容易出现的问题http415,http400">
+<meta property="og:url" content="http://criedguy.top/2017/05/18/hello-world/index.html">
 <meta property="og:site_name" content="Long long ago">
-<meta property="og:description" content="start from zero">
+<meta property="og:description" content="1.首先是url，如果是外部JS中的ajax请求，那么url是相对路径。如果是JSP页面中的请求，url是全路径。需要用到request.getContextPath. 2.其次是type，get/post，这个很少出问题。 3.重要的是ContentType,设置发送请求的提交数据的方式，有text/html、application/json、还有mutiple等。不是所有的数据请求都可以随便的">
+<meta property="og:updated_time" content="2017-05-25T14:54:47.388Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Long long ago">
-<meta name="twitter:description" content="start from zero">
+<meta name="twitter:title" content="Jquery ajax 请求容易出现的问题http415,http400">
+<meta name="twitter:description" content="1.首先是url，如果是外部JS中的ajax请求，那么url是相对路径。如果是JSP页面中的请求，url是全路径。需要用到request.getContextPath. 2.其次是type，get/post，这个很少出问题。 3.重要的是ContentType,设置发送请求的提交数据的方式，有text/html、application/json、还有mutiple等。不是所有的数据请求都可以随便的">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -55,7 +56,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>Archives: 2017 | Long long ago</title>
+<title>Jquery ajax 请求容易出现的问题http415,http400 | Long long ago</title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -65,8 +66,8 @@
         fancybox: true,
         animate: true,
         isHome: false,
-        isPost: false,
-        isArchive: true,
+        isPost: true,
+        isArchive: false,
         isTag: false,
         isCategory: false,
         fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
@@ -259,52 +260,155 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-          <div class="article-meta">
-              <a href="/2017/05/18/hello-world/" class="archive-article-date">
-      <time datetime="2017-05-18T05:18:50.887Z" itemprop="datePublished">05-18</time>
+    <div class="article-meta">
+      <a href="/2017/05/18/hello-world/" class="article-date">
+      <time datetime="2017-05-18T05:18:50.887Z" itemprop="datePublished">2017-05-18</time>
 </a>
 
 
-        </div>
-         
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/18/hello-world/">Jquery ajax 请求容易出现的问题http415,http400</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Jquery ajax 请求容易出现的问题http415,http400
     </h1>
   
 
-        <div class="article-info info-on-archive">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 
-          
-        </div>
+        
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>1.首先是url，如果是外部JS中的ajax请求，那么url是相对路径。如果是JSP页面中的请求，url是全路径。需要用到<strong>request.getContextPath</strong>.</p>
+<p>2.其次是<strong>type</strong>，<strong>get/post</strong>，这个很少出问题。</p>
+<p>3.重要的是<strong>ContentType</strong>,设置发送请求的提交数据的方式，有<strong>text/html、application/json</strong>、还有<strong>mutiple</strong>等。不是所有的数据请求都可以随便的。</p>
+<p>4.再更重要的就是检查好自己要传输的<strong>data</strong>数据了。</p>
+<p>   4.1： 首先data数据类型要和后台接收的类型相匹配，不然会报媒体格式不一致的<strong>Http 415</strong>错误</p>
+<p>   4.2：其次是当你的表单数据传输时，如果后台是用对象接收，那么要判断传输的内容（input select等）是否能正确的装填到对象中。如果不能装填，会报<strong>http 400</strong>，这个是很难找出来的问题的。</p>
+<p>   4.3：再就是当你的表单要转为json数据传输时，可以先序列化为json对象再传输，<strong>serializeArray()</strong>;、如果想转换成JSON字符串传输的话，则还需要使用<strong>JSON.stringify()</strong>;<br><strong>JSON.parse(jsonStr)</strong>;  字符串转对象<br><strong>JSON.stringify(jsonObj)</strong>;对象转字符串</p>
+<p>  4.4：再一个耳熟能详的就是<strong>async</strong>属性了。（默认的true是异步），false是同步。<br>  4.5：还有就是很多人容易搞混的，<strong>dataType</strong>，这个是指定的返回数据的类型，和你传输数据的类型半毛钱都没有谢谢！  明明我http400错误，别人叫我把dataType改为json，我日了狗的心都有了好吗？！</p>
+<p><a href="http://blog.csdn.net/u010394201/article/details/50052187" target="_blank" rel="external">http://blog.csdn.net/u010394201/article/details/50052187</a>        <a href="http://blog.csdn.net/u010394201/article/details/50052187" target="_blank" rel="external">bootstrap table的使用</a><br><a href="http://blog.csdn.net/zhaohuijiadelu/article/details/54408324" target="_blank" rel="external">http://blog.csdn.net/zhaohuijiadelu/article/details/54408324</a>      <a href="http://blog.csdn.net/zhaohuijiadelu/article/details/54408324" target="_blank" rel="external">js传数组到后台</a><br><a href="http://blog.csdn.net/isea533/article/details/44002219" target="_blank" rel="external">http://blog.csdn.net/isea533/article/details/44002219</a>             <a href="http://blog.csdn.net/isea533/article/details/44002219" target="_blank" rel="external">深入了解MyBatis参数</a></p>
+
+      
+    </div>
+    
   </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/05/18/hello-world/">Jquery ajax 请求容易出现的问题http415,http400</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Criedguy</a></p>
+        <p><span>发布时间:</span>2017-05-18, 13:18:50</p>
+        <p><span>最后更新:</span>2017-05-25, 22:54:47</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/05/18/hello-world/" title="Jquery ajax 请求容易出现的问题http415,http400">http://criedguy.top/2017/05/18/hello-world/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://criedguy.top/2017/05/18/hello-world/　　作者: Criedguy" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-3 i,
+        .toc-level-3 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Jquery ajax 请求容易出现的问题http415,http400　| Long long ago　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
 
     
 
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/05/18/hello-world/">Jquery ajax 请求容易出现的问题http415,http400</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
